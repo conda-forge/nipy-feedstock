@@ -9,20 +9,20 @@ source:
   sha256: c5bec3cf78a4cbc2cde8945710383295100939298a616bd289939ade3ed84afc
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install
 
 requirements:
   build:
     - python
     - cython
-    - numpy x.x
+    - numpy 1.11.*
     - scipy >=0.9.0
     - sympy >=0.7.0
     - nibabel >=1.2.0
   run:
     - python
-    - numpy x.x
+    - numpy >=1.11
     - scipy >=0.9.0
     - sympy >=0.7.0
     - nibabel >=1.2.0
