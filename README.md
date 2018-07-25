@@ -14,14 +14,16 @@ Summary: Neuroimaging in Python FMRI analysis package
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/nipy-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/nipy-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/nipy-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/nipy-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/nipy-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/nipy-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/nipy-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/nipy-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/nipy-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/nipy-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/nipy-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/nipy-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/nipy/badges/version.svg)](https://anaconda.org/conda-forge/nipy)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/nipy/badges/downloads.svg)](https://anaconda.org/conda-forge/nipy)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-nipy-green.svg)](https://anaconda.org/conda-forge/nipy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nipy.svg)](https://anaconda.org/conda-forge/nipy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nipy.svg)](https://anaconda.org/conda-forge/nipy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nipy.svg)](https://anaconda.org/conda-forge/nipy) |
 
 Installing nipy
 ===============
