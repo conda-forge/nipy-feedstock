@@ -17,6 +17,7 @@ requirements:
     - {{ compiler('c') }}
   host:
     - python
+    - pip
     - cython
     - numpy
     - scipy >=0.9.0
