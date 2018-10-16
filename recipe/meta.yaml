@@ -19,7 +19,8 @@ requirements:
     - python
     - pip
     - cython
-    - numpy
+    - numpy  # [not win]
+    - numpy 1.14.*  # [win]
     - scipy >=0.9.0
     - sympy >=0.7.0
     - nibabel >=1.2.0
