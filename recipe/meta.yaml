@@ -9,20 +9,24 @@ source:
   sha256: c5bec3cf78a4cbc2cde8945710383295100939298a616bd289939ade3ed84afc
 
 build:
-  number: 1
-  script: python setup.py install
+  number: 1001
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
     - python
+    - pip
     - cython
-    - numpy 1.11.*
+    - numpy  # [not win]
+    - numpy 1.14.*  # [win]
     - scipy >=0.9.0
     - sympy >=0.7.0
     - nibabel >=1.2.0
   run:
     - python
-    - numpy >=1.11
+    - {{ pin_compatible('numpy') }}
     - scipy >=0.9.0
     - sympy >=0.7.0
     - nibabel >=1.2.0
@@ -42,7 +46,8 @@ test:
 
 about:
   home: http://nipy.org/nipy
-  license: BSD 3-Clause
+  license: BSD-3-Clause
+  license_file: LICENSE
   summary: 'Neuroimaging in Python FMRI analysis package'
 
 extra:
