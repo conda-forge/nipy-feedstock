@@ -1,4 +1,4 @@
-{% set version = "0.4.2" %}
+{% set version = "0.5.0" %}
 
 package:
   name: nipy
@@ -6,13 +6,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/n/nipy/nipy-{{ version }}.tar.gz
-  sha256: d30bed60e1662f0b79ef665396e98b1b2e57b1734d3d11510a3d7fa66d18c7de
+  sha256: a8a2c97ce854fece4aced5a6394b9fdca5846150ad6d2a36b86590924af3c848
 
 build:
-  number: 1002
+  number: 0
   # due to the scipy pin, remove once a new release is out
-  skip: True  # [py>=38]
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  skip: true  # [py>=38]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
@@ -44,7 +44,7 @@ about:
   home: http://nipy.org/nipy
   license: BSD-3-Clause
   license_file: LICENSE
-  summary: 'Neuroimaging in Python FMRI analysis package'
+  summary: Neuroimaging in Python FMRI analysis package
 
 extra:
   recipe-maintainers:
