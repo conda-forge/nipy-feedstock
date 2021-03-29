@@ -10,9 +10,7 @@ source:
 
 build:
   number: 0
-  # due to the scipy pin, remove once a new release is out
-  skip: true  # [py>=38]
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -25,10 +23,9 @@ requirements:
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - numpy <1.18
-    - scipy >=0.9.0,<1.3.0
-    - sympy >=0.7.0
-    - nibabel >=1.2.0
+    - scipy >=1.0.0
+    - sympy >=1.0
+    - nibabel >=2.0
 
 test:
   imports:
@@ -39,6 +36,10 @@ test:
     - nipy.io
     - nipy.labs
     - nipy.modalities
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: http://nipy.org/nipy
