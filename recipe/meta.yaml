@@ -1,4 +1,4 @@
-{% set version = "0.4.2" %}
+{% set version = "0.6.0" %}
 
 package:
   name: nipy
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/n/nipy/nipy-{{ version }}.tar.gz
-  sha256: d30bed60e1662f0b79ef665396e98b1b2e57b1734d3d11510a3d7fa66d18c7de
+  sha256: 0539f69d5e1531e4fc6f14ce2531e3454f08d9bc45642cc86426559ff41c52b9
 
 build:
-  number: 1002
+  number: 0
   # due to the scipy pin, remove once a new release is out
-  skip: True  # [py>=38]
+  skip: true  # [py>=38]
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
