@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nipy-{{ version }}.tar.gz
   sha256: 0539f69d5e1531e4fc6f14ce2531e3454f08d9bc45642cc86426559ff41c52b9
+  patches:
+    - no-int-conversion.patch
 
 build:
   entry_points:
