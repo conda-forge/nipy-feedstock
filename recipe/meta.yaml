@@ -1,44 +1,60 @@
-{% set version = "0.4.2" %}
+{% set name = "nipy" %}
+{% set version = "0.6.0" %}
 
 package:
-  name: nipy
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/n/nipy/nipy-{{ version }}.tar.gz
-  sha256: d30bed60e1662f0b79ef665396e98b1b2e57b1734d3d11510a3d7fa66d18c7de
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nipy-{{ version }}.tar.gz
+  sha256: 0539f69d5e1531e4fc6f14ce2531e3454f08d9bc45642cc86426559ff41c52b9
+  patches:
+    - no-int-conversion.patch
 
 build:
-  number: 1002
-  # due to the scipy pin, remove once a new release is out
-  skip: True  # [py>=38]
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  entry_points:
+    - nipy_3dto4d = nipy.cli.img3dto4d:main
+    - nipy_4dto3d = nipy.cli.img4dto3d:main
+    - nipy_4d_realign = nipy.cli.realign4d:main
+    - nipy_tsdiffana = nipy.cli.tsdiffana:main
+    - nipy_diagnose = nipy.cli.diagnose:main
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
   host:
     - python
+    - meson-python >=0.13
+    - ninja
+    - setuptools
+    - cython >=3
     - pip
-    - cython >=0.12.1
-    - numpy
+    - numpy >=1.22,<2.0dev0
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - numpy <1.18
-    - scipy >=0.9.0,<1.3.0
-    - sympy >=0.7.0
-    - nibabel >=1.2.0
+    - numpy >=1.22,<2.0dev0
+    - scipy >=1.8
+    - nibabel >=3.2
+    - sympy >=1.9
+    - transforms3d
 
 test:
   imports:
     - nipy
-    - nipy.algorithms
-    - nipy.core
-    - nipy.interfaces
-    - nipy.io
-    - nipy.labs
-    - nipy.modalities
+  commands:
+    - pip check
+    - nipy_3dto4d --help
+    - nipy_4dto3d --help
+    - nipy_4d_realign --help
+    - nipy_tsdiffana --help
+    - nipy_diagnose --help
+  requires:
+    - pip
+    - matplotlib
 
 about:
   home: http://nipy.org/nipy

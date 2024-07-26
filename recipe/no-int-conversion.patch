@@ -1,0 +1,10 @@
+--- nipy-0.6.0.orig/meson.build	2023-12-21 16:21:34.000000000 +0100
++++ nipy-0.6.0/meson.build	2024-07-26 14:16:56.559870705 +0200
+@@ -28,6 +28,7 @@
+ 
+ _global_c_args = cc.get_supported_arguments(
+   '-Wno-unused-function',
++  '-Wno-int-conversion',
+ )
+ add_project_arguments(_global_c_args, language: ['c'])
+ 
