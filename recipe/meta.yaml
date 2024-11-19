@@ -32,11 +32,10 @@ requirements:
     - setuptools
     - cython >=3
     - pip
-    - numpy >=1.22,<2.0dev0
+    - numpy >=2
   run:
     - python
-    - {{ pin_compatible('numpy') }}
-    - numpy >=1.22,<2.0dev0
+    - numpy
     - scipy >=1.8
     - nibabel >=3.2
     - sympy >=1.9
